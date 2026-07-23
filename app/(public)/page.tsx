@@ -4,6 +4,7 @@ import { PiKnife } from "react-icons/pi";
 import { PiCookingPotLight } from "react-icons/pi";
 import { PiBowlFood } from "react-icons/pi";
 import { IoTimerOutline } from "react-icons/io5";
+import Link from "next/link";
 import { Card,
   CardContent,
   CardDescription,
@@ -131,23 +132,24 @@ async function Home() {
                 <CarouselContent>
                   {recipes.map((recipe:any) =>{
                     return(
-                      <CarouselItem key={recipe.id} className="pl-4 md:basis-1/2 lg:basis-1/6">
-                        <Card className="max-w-sm">
-                          <img className="w-full" src={recipe.image} alt="" width={50}  height={50}/>
-                          <CardHeader>
-                            <CardTitle>Deficulty:<span className="pl-2">{recipe.difficulty}</span></CardTitle>
-                            <CardDescription>
-                              {recipe.name}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent>
-                            <a href="">View Recipe</a>
-                          </CardContent>
-                        </Card>
-                      </CarouselItem>
+                     
+                        <CarouselItem key={recipe.id} className="pl-4 md:basis-1/2 lg:basis-1/6">
+                          <Card className="max-w-sm">
+                            <img className="w-full" src={recipe.image} alt="" width={50}  height={50}/>
+                            <CardHeader>
+                              <CardTitle>Deficulty:<span className="pl-2">{recipe.difficulty}</span></CardTitle>
+                              <CardDescription>
+                                {recipe.name}
+                              </CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                              <a href={`/${recipe.id}`}>View Recipe</a>
+                            </CardContent>
+                          </Card>
+                        </CarouselItem>
+                     
                     )
                   })}
-                  
 
                 </CarouselContent>
                 <CarouselPrevious />
